@@ -13,6 +13,7 @@
 		92CE3E0623A0DB3F00E911B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92CE3E0423A0DB3F00E911B2 /* Main.storyboard */; };
 		92CE3E0823A0DB4400E911B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92CE3E0723A0DB4400E911B2 /* Assets.xcassets */; };
 		92CE3E0B23A0DB4400E911B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92CE3E0923A0DB4400E911B2 /* LaunchScreen.storyboard */; };
+		92CE3E1323A0E95F00E911B2 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CE3E1223A0E95F00E911B2 /* StopWatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		92CE3E0723A0DB4400E911B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92CE3E0A23A0DB4400E911B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92CE3E0C23A0DB4400E911B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92CE3E1223A0E95F00E911B2 /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				92CE3DFE23A0DB3F00E911B2 /* AppDelegate.swift */,
 				92CE3E0023A0DB3F00E911B2 /* SceneDelegate.swift */,
 				92CE3E0223A0DB3F00E911B2 /* ViewController.swift */,
+				92CE3E1223A0E95F00E911B2 /* StopWatch.swift */,
 				92CE3E0423A0DB3F00E911B2 /* Main.storyboard */,
 				92CE3E0723A0DB4400E911B2 /* Assets.xcassets */,
 				92CE3E0923A0DB4400E911B2 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				92CE3E0323A0DB3F00E911B2 /* ViewController.swift in Sources */,
 				92CE3DFF23A0DB3F00E911B2 /* AppDelegate.swift in Sources */,
 				92CE3E0123A0DB3F00E911B2 /* SceneDelegate.swift in Sources */,
+				92CE3E1323A0E95F00E911B2 /* StopWatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
