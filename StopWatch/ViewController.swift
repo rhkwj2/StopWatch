@@ -29,19 +29,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //print(stopwatch.elapsedTime)
     }
     
-
+    @IBOutlet weak var startButton: UIButton!
+    
     
     @IBOutlet weak var timerLabel: UILabel!
     let stopwatch = Stopwatch()
     
     
-    @IBAction func lapButtonPressed(_ sender: UIButton) {
+    @IBAction func startButtonPressed(_ sender: UIButton) {
     
-        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector:#selector(updateElsapsedTimeLabel(timer:)),userInfo: nil, repeats: true)
-        stopwatch.start()
+        if stopwatch.isRunning {
+            // if the stopwatch started, stop it now
+            stopwatch.stop()
+            startButton.setTitle("start", for: .normal)
+        } else {
+            // if the stopwatch was stopped, start it now
+            Timer.scheduledTimer(timeInterval: 0.1, target: self, selector:#selector(updateElapsedTimeLabel(timer:)),userInfo: nil, repeats: true)
+            stopwatch.start()
+            //When Srart button pressed change the word to Stop
+            startButton.setTitle("stop", for: .normal)
+        }
             
+        
+        //button pressed start to timer
+         
+    
+        
     }
-    @objc func updateElsapsedTimeLabel(timer:Timer) {
+    @objc func updateElapsedTimeLabel(timer:Timer) {
         if stopwatch.isRunning {
             timerLabel.text = stopwatch.elapsedTimeAsString
         } else{
@@ -49,17 +64,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    @IBAction func startButtonPressed(_ sender: UIButton) {
+    @IBAction func lapButtonPressed(_ sender: UIButton) {
         print(stopwatch.elapsedTime)
-        stopwatch.stop()
-        // change the title to stop
         
-        // start
+        // record the elapseTime
         
-        //button pressed start to timer
+        // update tableView by reloadData
         
-       
-        //When Srart button pressed change the word to Stop
+        
 
     }
     
