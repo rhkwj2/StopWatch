@@ -10,6 +10,7 @@
 
 //https://swifteducation.github.io/teaching_app_development_with_swift/stopwatch.html
 // https://stackoverflow.com/questions/24755558/measure-elapsed-time-in-swift
+//https://stackoverflow.com/questions/34929932/round-up-double-to-2-decimal-places/34930127
 
 import UIKit
 
@@ -19,11 +20,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let rowData = dataArray[indexPath.row]
+        let elapsedTime = dataArray[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier:
             "BasicCell", for: indexPath)
-        cell.textLabel?.text = "\(rowData)"
+        
+        //the stopwatch show me quite much data so like to cut
+           
+        let elapsedTimeString = String(format: "%.4f", elapsedTime)
+        cell.textLabel?.text = "\(elapsedTimeString)"
+        cell.textLabel?.textAlignment = .center
         return cell
     
         
@@ -70,9 +76,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // record the elapseTime
         let elapsedTime = stopwatch.elapsedTime
         // update tableView by reloadData
+        dataArray.append(elapsedTime)
+    
         
-        
-          //when lapbutton is pressed -> print stopwatch timer
+        //when lapbutton is pressed -> print stopwatch timer
+        myTableView.reloadData()
         
 
     }
@@ -81,7 +89,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     @IBOutlet weak var myTableView: UITableView!
-    var dataArray: [Double] = []
+    var dataArray: [TimeInterval] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
