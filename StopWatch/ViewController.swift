@@ -25,6 +25,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             "BasicCell", for: indexPath)
         cell.textLabel?.text = rowData
         return cell
+        //print stopwatch timer
+        //print(stopwatch.elapsedTime)
     }
     
 
@@ -34,23 +36,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     @IBAction func lapButtonPressed(_ sender: UIButton) {
-        print("Starting stopwatch")
+    
         Timer.scheduledTimer(timeInterval: 0.1, target: self, selector:#selector(updateElsapsedTimeLabel(timer:)),userInfo: nil, repeats: true)
         stopwatch.start()
             
     }
     @objc func updateElsapsedTimeLabel(timer:Timer) {
-        print("updating...")
         if stopwatch.isRunning {
-        timerLabel.text = "\(stopwatch.elapsedTime)"
+            timerLabel.text = stopwatch.elapsedTimeAsString
         } else{
             timer.invalidate()
         }
     }
     
-    @IBAction func StartButtonPressed(_ sender: UIButton) {
+    @IBAction func startButtonPressed(_ sender: UIButton) {
         print(stopwatch.elapsedTime)
         stopwatch.stop()
+        // change the title to stop
+        
+        // start
         
         //button pressed start to timer
         
