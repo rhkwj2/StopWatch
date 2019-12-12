@@ -23,10 +23,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let cell = tableView.dequeueReusableCell(withIdentifier:
             "BasicCell", for: indexPath)
-        cell.textLabel?.text = rowData
+        cell.textLabel?.text = "\(rowData)"
         return cell
-        //print stopwatch timer
-        //print(stopwatch.elapsedTime)
+    
+        
     }
     
     @IBOutlet weak var startButton: UIButton!
@@ -47,11 +47,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             Timer.scheduledTimer(timeInterval: 0.1, target: self, selector:#selector(updateElapsedTimeLabel(timer:)),userInfo: nil, repeats: true)
             stopwatch.start()
             //When Srart button pressed change the word to Stop
+            //https://soltveit.org/swift-change-uibutton-text/
             startButton.setTitle("stop", for: .normal)
         }
             
         
-        //button pressed start to timer
          
     
         
@@ -68,9 +68,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         print(stopwatch.elapsedTime)
         
         // record the elapseTime
-        
+        let elapsedTime = stopwatch.elapsedTime
         // update tableView by reloadData
         
+        
+          //when lapbutton is pressed -> print stopwatch timer
         
 
     }
@@ -79,7 +81,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     @IBOutlet weak var myTableView: UITableView!
-    let dataArray = ["number"]
+    var dataArray: [Double] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
