@@ -15,6 +15,16 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    // add a state machine
+    enum TimerState {
+        case initial
+        case runing
+        case notRuning
+    }
+    
+    var timerState: TimerState = .initial
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataArray.count
     }
@@ -43,7 +53,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     @IBAction func startButtonPressed(_ sender: UIButton) {
-    
         if stopwatch.isRunning {
             // if the stopwatch started, stop it now
             stopwatch.stop()
@@ -56,11 +65,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //https://soltveit.org/swift-change-uibutton-text/
             startButton.setTitle("stop", for: .normal)
         }
-            
-        
-         
-    
-        
     }
     @objc func updateElapsedTimeLabel(timer:Timer) {
         if stopwatch.isRunning {
@@ -81,6 +85,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         //when lapbutton is pressed -> print stopwatch timer
         myTableView.reloadData()
+        
+        //When the stopbutton pressed change to restart
         
 
     }
